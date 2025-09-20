@@ -19,10 +19,12 @@
 }
 #display {
     width: 100%;
-    height: 80px;
+    height: 85px;
     border-radius: 10px;
     background-color: white;
     margin-bottom: 10px;
+    font-size: 36px;
+    text-align: right;
 }
 .wrapper button {
     border: 0;
