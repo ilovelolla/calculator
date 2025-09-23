@@ -9,23 +9,20 @@ const operatorsBtn = document.querySelectorAll(".operator");
 let firstNum ="";
 let secondNum = "";
 let operator="";
-let resultValue =""
-let expression = ""
-let partialx="";
-let sec = "";
+let resultValue ="";
+let expression = "";
 
 numbersBtn.forEach(function (numberButton) {
     numberButton.addEventListener("click", function () {
         if (operator === "") {
-            displayprev.textContent += numberButton.textContent;
-            firstNum = parseInt(displayprev.textContent);
+            firstNum += numberButton.textContent;
+            displayprev.textContent = firstNum;
             console.log(firstNum);
         } else {
-            sec += numberButton.textContent;
-            secondNum = parseInt(sec);
-            displayprev.textContent = partialx + sec;
-            // expression = displayprev.textContent
-            console.log(sec);
+            secondNum += numberButton.textContent;
+            displayprev.textContent = firstNum+ operatorSymbol + secondNum;
+            expression = displayprev.textContent
+            console.log(secondNum);
             console.log(expression);
         }
     });
@@ -35,20 +32,35 @@ numbersBtn.forEach(function (numberButton) {
 operatorsBtn.forEach(function(operatorBtn) {
     operatorBtn.addEventListener("click", function() {
         operator = operatorBtn.dataset.op;
+        operatorSymbol = operatorBtn.textContent
         if (!isNaN(firstNum)) {
-        displayprev.textContent = firstNum + operatorBtn.textContent
-        partialx = displayprev.textContent
+        displayprev.textContent = firstNum + operatorSymbol
         console.log(operator);
-        console.log(partialx);
+        
     }});
 });
 
 
 clearBtn.addEventListener("click", () => {
-    displayprev.textContent = ""
-    displaycurr = ""
+    displayprev.innerHTML = "";
+    firstNum = "";
+    secondNum = "";
+    operator = ""
+     })
+deleteBtn.addEventListener("click", () => {
+    if (operator === "") {
+        firstNum = firstNum.slice(0,-1);
+        displayprev.textContent = firstNum
+    } else if (secondNum) {
+        secondNum = secondNum.slice(0,-1);
+        displayprev.textContent = firstNum + operatorSymbol + secondNum
+    } else {
+        operator = "";
+        operatorSymbol = "";
+        displayprev.textContent = firstNum;
+    }
+   
 })
-
 
 
 
