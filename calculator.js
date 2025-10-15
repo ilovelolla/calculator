@@ -32,10 +32,10 @@ numbersBtn.forEach(function (numberButton) {
             console.log(expression);
         }
 
-        if (firstNum.startsWith("0")) {
+        if (firstNum.startsWith("00")) {
             firstNum = firstNum.slice(0,-1)
             displayprev.textContent = firstNum
-        } else if (secondNum.startsWith("0")) {
+        } else if (secondNum.startsWith("00")) {
             secondNum = secondNum.slice(0,-1)
             displayprev.textContent = firstNum + operatorSymbol + secondNum;
         }
