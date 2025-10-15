@@ -14,6 +14,7 @@ function calculator(a, b, c) {
             case "/":
                 if (b === 0) {
                     throw "Can't divide by 0!";
+                    alert("Can't divide by 0!")
                 } else {
                     output = a / b;
                 }
